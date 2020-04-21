@@ -2,6 +2,7 @@ import React from 'react'
 
 export const Message = ({ message: { user, text }, name }) => {
   let isSendByCurrentUser = false
+  let isSendByAdminUserUser = false
 
   const trimedName = name.trim().toLowerCase()
 
@@ -9,22 +10,25 @@ export const Message = ({ message: { user, text }, name }) => {
     isSendByCurrentUser = true
   }
 
+  if (user === 'admin') {
+    isSendByAdminUserUser = true
+  }
+
   return (
     isSendByCurrentUser ? (
-      <div className='message-wrapper justifyEnd'>
-        <span className='pr-10'>{trimedName}</span>
-        <div className='message-box bg-blue'>
-          <p>{text}</p>
-        </div>
+      <div className='justifyEnd'>
+        <p>{text}</p>
+      </div>
+    ) : isSendByAdminUserUser ? (
+      <div className='justifyCenter'>
+        <p>{text}</p>
       </div>
     ) : (
-        <div className='message-wrapper justifyStart'>
-          <div className='message-box bg-alice'>
+          <div className='justifyStart'>
             <p>{text}</p>
-          </div>
-          <span className='pl=10'>{user}</span>
-        </div>
-      )
+            <span >{user}</span>
+          </div >
+        )
   )
 }
 

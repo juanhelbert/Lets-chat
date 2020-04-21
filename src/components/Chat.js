@@ -47,19 +47,17 @@ export const Chat = ({ location }) => {
   }
 
   return (
-    <div className='wrapper'>
-      <div className='container'>
-        <InfoBar room={room} />
-        <Messages
-          messages={messages}
-          name={name}
-        />
-        <Input
-          message={message}
-          setMessage={setMessage}
-          sendMessage={sendMessage}
-        />
-      </div>
+    <div className='page chat container'>
+      <InfoBar room={room} />
+      <Messages
+        messages={messages}
+        name={name}
+      />
+      <Input
+        message={message}
+        setMessage={setMessage}
+        sendMessage={sendMessage}
+      />
     </div>
   )
 }

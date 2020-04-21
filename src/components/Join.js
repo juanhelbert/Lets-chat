@@ -6,27 +6,24 @@ export const Join = () => {
   const [room, setRoom] = useState('')
 
   return (
-    <div className='join-wrapper'>
+    <div className='page join container'>
       <h1>Join</h1>
-      <div>
-        <input
-          placeholder='Name'
-          type='text'
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder='Room'
-          type='text'
-          onChange={(e) => setRoom(e.target.value)}
-        />
-      </div>
-      <Link to={`/chat?name=${name}&room=${room}`}>
-        <button disabled={!name || !room} className='btn' type='submit'>
-          Sign In
-        </button>
+      <input
+        placeholder='Your name'
+        type='text'
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        placeholder='A room name'
+        type='text'
+        onChange={(e) => setRoom(e.target.value)}
+      />
+      <Link to={`/chat?name=${name}&room=${room}`} className={`btn ${!name || !room ? 'disabled' : 'enabled'}`} role='button' >
+        Sign In
       </Link>
+      <p>
+        *You can enter into the same room but with a different name to try a conversation.
+      </p>
     </div>
   )
 }
