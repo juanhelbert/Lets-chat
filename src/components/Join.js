@@ -9,11 +9,13 @@ export const Join = () => {
     <div className='page join container'>
       <h1>Join</h1>
       <input
+        aria-label="Your name"
         placeholder='Your name'
         type='text'
         onChange={(e) => setName(e.target.value)}
       />
       <input
+        aria-label="A room name"
         placeholder='A room name'
         type='text'
         onChange={(e) => setRoom(e.target.value)}
